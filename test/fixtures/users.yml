@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  last_name: MyString
+  first_name: MyString
+  latitude: 1.5
+  longitude: 1.5
+  email: MyString
+  meeting: 1
+
+two:
+  last_name: MyString
+  first_name: MyString
+  latitude: 1.5
+  longitude: 1.5
+  email: MyString
+  meeting: 1
