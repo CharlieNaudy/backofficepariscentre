@@ -1,4 +1,4 @@
-Meeting.create(
+ Meeting.create(
 	id_meeting: "Se la coller à République",
 	latitude: 48.86751,
 	longitude: 2.363777,
@@ -13,7 +13,7 @@ Meeting.create(
 	date: DateTime.new(2017,01,01,14,00,00)
 	)
 Meeting.create(
-	id_meeting: "La portuguech",
+	id_meeting: "Laporta",
 	latitude: 48.86751,
 	longitude: 2.363777,
 	participants: "Charlie",
@@ -30,8 +30,8 @@ Meeting.create(
 User.create(
 	last_name: "Le Dreff",
 	first_name: "Jean-Malo",
-	latitude: 48.86751,
-	longitude: 2.363777,
+	latitude: 48.4597,
+	longitude: -5.0862,
 	email: blabla@polytechnique.edu,
-	meeting: Sous locean,
+	meeting: Laporta,
 	)

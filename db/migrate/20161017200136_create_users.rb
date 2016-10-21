@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.float :latitude
       t.float :longitude
       t.string :email
-      t.integer :meeting
+      t.meeting :meeting
 
       t.timestamps
     end
