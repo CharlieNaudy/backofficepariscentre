@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.float :latitude
       t.float :longitude
       t.string :email
-      t.meeting :meeting
+      t.references :meeting, foreign_key: true
 
       t.timestamps
     end

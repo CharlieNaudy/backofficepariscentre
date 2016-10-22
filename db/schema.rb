@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161017200136) do
+ActiveRecord::Schema.define(version: 20161020120000) do
 
   create_table "meetings", force: :cascade do |t|
-    t.string   "id_meeting"
+    t.string   "nom"
     t.float    "latitude"
     t.float    "longitude"
     t.string   "participants"
@@ -28,9 +28,10 @@ ActiveRecord::Schema.define(version: 20161017200136) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "email"
-    t.integer  "meeting"
+    t.integer  "meeting_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["meeting_id"], name: "index_users_on_meeting_id"
   end
 
 end
