@@ -19,6 +19,18 @@
   <strong>Participants:</strong>
   <%= @meeting.participants %>
 </p>
+<p>
+  <strong>Friends:</strong>
+  <%= if @meeting.users.empty?
+    "No friend in the meeting"
+  else
+    @meeting.users.each do |ami|
+     ami.first_name
+    end
+  end
+  %>
+   
+</p>
 
 <p>
   <strong>Date:</strong>
