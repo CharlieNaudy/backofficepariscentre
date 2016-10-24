@@ -5,10 +5,9 @@
 <table>
   <thead>
     <tr>
-      <th>Id meeting</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th>Participants</th>
+      <th>Nom</th>
+      <th>Adresse</th>
+      <th>Friends</th>
       <th>Date</th>
       <th colspan="3"></th>
     </tr>
@@ -18,9 +17,18 @@
     <% @meetings.each do |meeting| %>
       <tr>
         <td><%= meeting.nom %></td>
-        <td><%= meeting.latitude %></td>
-        <td><%= meeting.longitude %></td>
-        <td><%= meeting.participants %></td>
+        <td><%=  %>
+          
+        </td>
+        <td> <% if meeting.users.empty? %>
+          <%= "Empty meeting" %>
+          <%else%>
+          <% meeting.users.each do |ami| %>
+          <% @a = "#{@a}" + ami.first_name + " " + ami.last_name + ", " %>
+          <% end %>
+          <%= @a.chomp(", ") %>
+          <% end %>
+        </td>
         <td><%= meeting.date %></td>
         <td><%= link_to 'Show', meeting %></td>
         <td><%= link_to 'Edit', edit_meeting_path(meeting) %></td>

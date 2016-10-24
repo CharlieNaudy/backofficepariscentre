@@ -35,3 +35,19 @@ User.create(
 	email: "blabla@polytechnique.edu",
 	meeting_id: 1,
 	)
+User.create(
+	last_name: "Naudy",
+	first_name: "Charlie",
+	latitude: 47.4597,
+	longitude: -3.0862,
+	email: "ouioui@polytechnique.edu",
+	meeting_id: 1,
+	)
+User.create(
+	last_name: "DJ",
+	first_name: "Ghislain",
+	latitude: 44.4597,
+	longitude: 0.0862,
+	email: "pioupiou@polytechnique.edu",
+	meeting_id: 2,
+	)
