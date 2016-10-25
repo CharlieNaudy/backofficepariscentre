@@ -1,5 +1,6 @@
 class Meeting < ApplicationRecord
 	has_many :users
-	#reverse_geocoded_by :latitude, :longitude
-	#after_validation :reverse_geocode
+
+	geocoded_by :adress
+	after_validation :geocode#, if: ->(obj){ obj.address.present? and obj.address_changed? }
 end

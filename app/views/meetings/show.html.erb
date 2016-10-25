@@ -4,7 +4,10 @@
   <strong>Nom:</strong>
   <%= @meeting.nom %>
 </p>
-
+<p>
+  <strong>Adress:</strong>
+  <%= @meeting.adress %>
+</p>
 <p>
   <strong>Latitude:</strong>
   <%= @meeting.latitude %>
@@ -15,10 +18,7 @@
   <%= @meeting.longitude %>
 </p>
 
-<p>
-  <strong>Participants:</strong>
-  <%= @meeting.participants %>
-</p>
+
 <p>
   <strong>Friends:</strong>
   <% if @meeting.users.empty? %>
