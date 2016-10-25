@@ -13,14 +13,14 @@
 ActiveRecord::Schema.define(version: 20161025095310) do
 
   create_table "meetings", force: :cascade do |t|
-    t.string   "nom"
+    t.string   "name"
     t.float    "latitude"
     t.float    "longitude"
     t.string   "participants"
     t.datetime "date"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.text     "adress"
+    t.text     "address"
   end
 
   create_table "users", force: :cascade do |t|
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20161025095310) do
     t.integer  "meeting_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text     "adress"
+    t.text     "address"
     t.index ["meeting_id"], name: "index_users_on_meeting_id"
   end
 
