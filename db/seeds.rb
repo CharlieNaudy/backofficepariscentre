@@ -21,8 +21,7 @@ Meeting.create(
 	)
 Meeting.create(
 	name: "Sous locean",
-	latitude: 48.852969,
-	longitude: 2.349873,
+	address: "1 Rue de la Paix, Paris",
 	participants: "JMichel",
 	date: DateTime.new(2017,01,01,14,00,00)
 	)

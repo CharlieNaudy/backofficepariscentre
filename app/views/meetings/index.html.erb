@@ -17,7 +17,7 @@
     <% @meetings.each do |meeting| %>
       <tr>
         <td><%= meeting.name %></td>
-        <td><%=  %>
+        <td><%= meeting.address %>
           
         </td>
         <td> <% if meeting.users.empty? %>
