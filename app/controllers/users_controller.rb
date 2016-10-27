@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :create_meeting]
+
+ # On saute une etape de securite si on appel BOOK en JSON
+  skip_before_action :verify_authenticity_token, only: [:create_meeting]
 
   # GET /users
   # GET /users.json
@@ -61,6 +64,23 @@ class UsersController < ApplicationController
     end
   end
 
+# POST /user/1/create_meeting.json
+  def create_meeting
+    # On crée un nouvel objet meeting à partir des paramètres reçus
+    @meeting = Meeting.new(meeting_params)
+    # On précise que cet object Meeting a comme premier participant le user concerné
+    @user.meeting_id = @meeting.id
+    print "blabla" + @meeting.users.first.to_s
+
+    respond_to do |format|
+      if @meeting.save
+        format.json
+      else
+        format.json { render json: @meeting.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -70,5 +90,9 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:last_name, :first_name, :address, :latitude, :longitude, :email, :meeting_id)
+    end
+
+    def meeting_params
+      params.require(:meeting).permit(:name, :address, :latitude, :longitude, :participants, :date)
     end
 end
