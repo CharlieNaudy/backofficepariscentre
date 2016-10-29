@@ -27,6 +27,7 @@
           <% @a = "#{@a}" + ami.first_name + " " + ami.last_name + ", " %>
           <% end %>
           <%= @a.chomp(", ") %>
+          <% @a = nil %>
           <% end %>
         </td>
         <td><%= meeting.date %></td>

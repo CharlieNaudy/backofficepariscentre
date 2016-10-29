@@ -70,7 +70,7 @@ class UsersController < ApplicationController
     @meeting = Meeting.new(meeting_params)
     # On précise que cet object Meeting a comme premier participant le user concerné
     @user.meeting_id = @meeting.id
-    print "blabla" + @meeting.users.first.to_s
+    @user.save
 
     respond_to do |format|
       if @meeting.save
@@ -93,6 +93,6 @@ class UsersController < ApplicationController
     end
 
     def meeting_params
-      params.require(:meeting).permit(:name, :address, :latitude, :longitude, :participants, :date)
+      params.require(:meeting).permit(:name, :address, :latitude, :longitude, :date)
     end
 end

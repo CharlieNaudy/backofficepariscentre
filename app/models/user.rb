@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-	belongs_to :meeting
+	belongs_to :meeting, optional: true
 
 	geocoded_by :address
 	reverse_geocoded_by :latitude, :longitude

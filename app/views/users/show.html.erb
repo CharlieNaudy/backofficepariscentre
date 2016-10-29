@@ -31,15 +31,15 @@
 
 <p>
   <strong>Meeting:</strong>
-  <%= @user.meeting.name %>
+  <%= @user.meeting&.name %>
 </p>
-
+<% if @user.meeting.present? %>
 <img>
   <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@user.latitude},#{@user.longitude}&markers=#{@user.latitude},#{@user.longitude}&zoom=13&size=640x400&key=AIzaSyA3ClUuV34fLioaJn9jbt0emQXtjW-ciCQ",
               class: 'img-fluid img-rounded', alt: "#{@user.last_name} on the map"%>
 
 </img>
-
+<% end %>
 <p>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
