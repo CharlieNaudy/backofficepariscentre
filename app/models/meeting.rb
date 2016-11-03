@@ -14,7 +14,7 @@ class Meeting < ApplicationRecord
   	end
   end
 
-	before_save self.calcul_barycentre
+	#before_save self.calcul_barycentre
 	geocoded_by :address
 	reverse_geocoded_by :latitude, :longitude
 	after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }
