@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>ID</th>
       <th>Name</th>
       <th>Address</th>
       <th>Friends</th>
@@ -16,6 +17,7 @@
   <tbody>
     <% @meetings.each do |meeting| %>
       <tr>
+        <td><%= meeting.id%></td>
         <td><%= meeting.name %></td>
         <td><%= meeting.address %>
           
