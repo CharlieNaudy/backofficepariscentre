@@ -31,7 +31,9 @@
 
 <p>
   <strong>Meeting:</strong>
-  <%= @user.meeting&.name %>
+  <% if @user.meeting.present? %>
+    <%= @user.meeting.name %>
+    <% end %>
 </p>
 <% if @user.meeting.present? %>
 <img>
