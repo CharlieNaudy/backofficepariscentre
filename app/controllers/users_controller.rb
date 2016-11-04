@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :create_meeting]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]#, :create_meeting]
 
  # On saute une etape de securite si on appel BOOK en JSON
   skip_before_action :verify_authenticity_token#, only: [:create_meeting]
@@ -65,6 +65,7 @@ class UsersController < ApplicationController
   end
 
 # POST /user/1/create_meeting.json
+/
   def create_meeting
     # On crée un nouvel objet meeting à partir des paramètres reçus
     @meeting = Meeting.new(meeting_params)
@@ -80,7 +81,7 @@ class UsersController < ApplicationController
       end
     end
   end
-
+/
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -92,7 +93,8 @@ class UsersController < ApplicationController
       params.require(:user).permit(:last_name, :first_name, :address, :latitude, :longitude, :email, :meeting_id)
     end
 
-    def meeting_params
+   / def meeting_params
       params.require(:meeting).permit(:name, :address, :latitude, :longitude, :date)
     end
+    /
 end
