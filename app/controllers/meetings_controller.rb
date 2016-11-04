@@ -2,7 +2,7 @@ class MeetingsController < ApplicationController
   before_action :set_meeting, only: [:show, :edit, :update, :destroy]
 
   # On saute une etape de securite si on appel BOOK en JSON
-  skip_before_action :verify_authenticity_token, only: [:create_meeting]
+  skip_before_action :verify_authenticity_token#, only: [:create_meeting]
 
   # GET /meetings
   # GET /meetings.json
