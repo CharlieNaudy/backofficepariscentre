@@ -27,7 +27,17 @@ class MeetingsController < ApplicationController
   # POST /meetings
   # POST /meetings.json
   def create
-    @meeting = Meeting.new(meeting_params)
+    @meeting = Meeting.create(meeting_params)
+
+    @users_ids = params[:users_id]
+    
+debugger
+
+    @users_ids.each do users_id
+      @user.find(users_id)
+      @user.meeting = @meeting
+      @user.save
+    end
 
     respond_to do |format|
       if @meeting.save
@@ -72,6 +82,6 @@ class MeetingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def meeting_params
-      params.require(:meeting).permit(:name, :address, :latitude, :longitude, :date)
+      params.require(:meeting).permit(:name, :address, :latitude, :longitude, :date, users_id: [])
     end
 end

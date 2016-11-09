@@ -1,7 +1,7 @@
 class Meeting < ApplicationRecord
 	has_many :users
 
-
+#attr_accessor :users_id
 
   def calcul_barycentre
     if self.users.present?
