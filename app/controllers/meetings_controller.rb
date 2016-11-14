@@ -31,11 +31,12 @@ class MeetingsController < ApplicationController
     @meeting = Meeting.create(meeting_less_params)
 
     @users_id = params[:users_id]
-
+    if @users_id.present?
     @users_id.each do |usersid|
       @user = User.find(usersid)
       @user.meeting = @meeting
       @user.save
+      end
     end
 
     respond_to do |format|

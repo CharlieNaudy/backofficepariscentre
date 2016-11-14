@@ -37,8 +37,7 @@
 </p>
 
 <img>
-  <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@meeting.latitude},#{@meeting.longitude}&markers=#{@meeting.latitude},#{@meeting.longitude}&zoom=13&size=640x400&key=AIzaSyA3ClUuV34fLioaJn9jbt0emQXtjW-ciCQ",
-              class: 'img-fluid img-rounded', alt: "#{@meeting.name} on the map"%>
+  <%= image_tag @meeting.url_map, class: 'img-fluid img-rounded', alt: "#{@meeting.name} on the map"%>
 
 </img>
 <p><%= link_to 'Edit', edit_meeting_path(@meeting) %> |
