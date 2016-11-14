@@ -16,7 +16,7 @@ class Meeting < ApplicationRecord
   	end
   end
 
-  def url_map
+  def map_url
     "http://maps.googleapis.com/maps/api/staticmap?center=#{self.latitude},#{self.longitude}&markers=#{self.latitude},#{self.longitude}&zoom=13&size=640x400&key=AIzaSyA3ClUuV34fLioaJn9jbt0emQXtjW-ciCQ"
   end
 
