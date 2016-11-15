@@ -17,7 +17,13 @@ class Meeting < ApplicationRecord
   end
 
   def map_url
-    "http://maps.googleapis.com/maps/api/staticmap?center=#{self.latitude},#{self.longitude}&markers=#{self.latitude},#{self.longitude}&zoom=13&size=640x400&key=AIzaSyA3ClUuV34fLioaJn9jbt0emQXtjW-ciCQ"
+    if self.users.third.present?
+    "http://maps.googleapis.com/maps/api/staticmap?center=#{self.latitude},#{self.longitude}&markers=#{self.latitude},#{self.longitude}&markers=color:blue%7Csize:mid%7C#{self.users.first.latitude},#{self.users.first.longitude}&markers=color:blue%7Csize:mid%7C#{self.users.second.latitude},#{self.users.second.longitude}&markers=color:blue%7Csize:mid%7C#{self.users.third.latitude},#{self.users.third.longitude}&size=640x400&key=AIzaSyA3ClUuV34fLioaJn9jbt0emQXtjW-ciCQ"
+    elsif self.users.second.present?
+    "http://maps.googleapis.com/maps/api/staticmap?center=#{self.latitude},#{self.longitude}&markers=#{self.latitude},#{self.longitude}&markers=color:blue%7Csize:mid%7C#{self.users.first.latitude},#{self.users.first.longitude}&markers=color:blue%7Csize:mid%7C#{self.users.second.latitude},#{self.users.second.longitude}&size=640x400&key=AIzaSyA3ClUuV34fLioaJn9jbt0emQXtjW-ciCQ"
+    elsif self.users.first.present?
+    "http://maps.googleapis.com/maps/api/staticmap?center=#{self.latitude},#{self.longitude}&markers=#{self.latitude},#{self.longitude}&markers=color:blue%7Csize:mid%7C#{self.users.first.latitude},#{self.users.first.longitude}&size=640x400&key=AIzaSyA3ClUuV34fLioaJn9jbt0emQXtjW-ciCQ"
+    end 
   end
 
 	before_save :calcul_barycentre
