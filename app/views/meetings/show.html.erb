@@ -37,7 +37,7 @@
 </p>
 
 <img>
-  <%= image_tag @meeting.url_map, class: 'img-fluid img-rounded', alt: "#{@meeting.name} on the map"%>
+  <%= image_tag @meeting.map_url, class: 'img-fluid img-rounded', alt: "#{@meeting.name} on the map"%>
 
 </img>
 <p><%= link_to 'Edit', edit_meeting_path(@meeting) %> |

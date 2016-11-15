@@ -68,7 +68,7 @@ class MeetingsController < ApplicationController
   # DELETE /meetings/1.json
   def destroy
     @meeting.users.each do |user|
-      user.meeting_id = nil
+      user.update_attribute :meeting_id, nil
     end
     @meeting.destroy
     respond_to do |format|
